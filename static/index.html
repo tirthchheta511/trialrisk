@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrialRisk: will this clinical trial stop early?</title>
+<meta name="description" content="Paste any ClinicalTrials.gov trial. An AI reviewer reads the protocol, stamps a risk of stopping early, marks the reasons and shows similar past trials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' rx='4' fill='none' stroke='%23c62f3a' stroke-width='3'/%3E%3Cpath d='M9 21l5-9 4 6 5-8' fill='none' stroke='%23c62f3a' stroke-width='3'/%3E%3C/svg%3E">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.25 1.55" result="m"/>
+    <feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+</svg>
+
+<header class="bar">
+  <a class="wordmark" href="#top">TrialRisk</a>
+  <nav aria-label="Sections">
+    <a href="#desk">Review a trial</a>
+    <a href="#results">Is it any good?</a>
+    <a href="#how">How it was built</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="intro">
+    <h1>Will this clinical trial stop early?</h1>
+    <p class="lede">About <b id="one-in">1 in 7</b> clinical trials stops early. That wastes years of work and the time of the people who joined.
+      Give TrialRisk a trial and an AI reviewer reads the protocol, stamps a risk, marks the reasons in the margin and pulls up similar past trials.</p>
+    <form id="ask" class="ask" autocomplete="off">
+      <label for="q" class="sr">Trial number or a disease</label>
+      <input id="q" name="q" placeholder="NCT number or a disease" maxlength="80">
+      <button type="submit">Review</button>
+    </form>
+    <div class="samples">
+      <span>Or open a real 2018-2019 case file:</span>
+      <div id="chips" class="chips"></div>
+      <button type="button" class="linkish" id="open-design">Design your own trial</button>
+    </div>
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+  </section>
+
+  <section id="found" class="found" hidden>
+    <div class="found-head"><h2 id="found-title">Recruiting now</h2><button class="linkish" id="found-close" type="button">Close</button></div>
+    <ol id="found-list"></ol>
+  </section>
+
+  <section id="desk" class="desk" aria-label="Protocol under review">
+    <div class="sheet-wrap">
+      <article class="sheet" id="sheet" aria-busy="false">
+        <div class="stamp" id="stamp" role="img" aria-label=""><div class="stamp-inner"><span class="stamp-band" id="stamp-band"></span><span class="stamp-pct" id="stamp-pct"></span><span class="stamp-was" id="stamp-was"></span></div></div>
+        <div class="sheet-head">
+          <p class="kind" id="kind"></p>
+          <h2 id="title">Loading a case file</h2>
+          <dl class="meta">
+            <div><dt>Trial</dt><dd id="m-id"></dd></div>
+            <div><dt>Status</dt><dd id="m-status"></dd></div>
+            <div><dt>Start</dt><dd id="m-start"></dd></div>
+            <div><dt>Condition</dt><dd id="m-cond"></dd></div>
+          </dl>
+          <p class="verdict" id="verdict"></p>
+        </div>
+        <div class="sections" id="sections"></div>
+        <div class="outcome" id="outcome" hidden></div>
+        <div class="working" id="working" hidden>
+          <div class="pencil-line"></div>
+          <ol id="steps"></ol>
+          <p class="slow" id="slow" hidden>The free server is waking up. The first review can take up to a minute.</p>
+        </div>
+      </article>
+    </div>
+
+    <section class="precedents" aria-labelledby="prec-title">
+      <h3 id="prec-title">Precedents: the most similar past trials</h3>
+      <p class="prec-sum" id="prec-sum"></p>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section class="redesign" aria-labelledby="re-title">
+      <div class="re-head">
+        <h3 id="re-title">Redesign this trial</h3>
+        <p>Change the design and the reviewer re-stamps it. The AI's reading of the text stays the same, so you see what the design choices alone do.</p>
+      </div>
+      <form id="levers" class="levers"></form>
+      <div class="re-foot"><p id="changes" class="changes"></p><button type="button" class="linkish" id="reset">Back to the real design</button></div>
+    </section>
+  </section>
+
+  <section id="results" class="results">
+    <h2>Is it any good?</h2>
+    <p class="section-lede">The model learned from trials that started in 2008-2015 and was tested once on <b id="r-test-n"></b> trials that started in 2018-2019. It had never seen them.</p>
+    <div class="memo">
+      <div class="finding"><span class="num" id="r-auroc"></span><p>AUROC on the 2018-2019 trials. 0.5 is a coin flip and 1.0 is perfect. Without trials stopped by COVID-19, which no design could predict, it is <b id="r-auroc-nc"></b>.</p></div>
+      <div class="finding"><span class="num" id="r-bands"></span><p>Trials stamped high risk really stopped <b id="r-high"></b> of the time. Trials stamped low risk stopped <b id="r-low"></b>.</p></div>
+      <div class="finding"><span class="num" id="r-lift"></span><p>The riskiest 10% of trials stopped this many times more often than the average trial.</p></div>
+    </div>
+    <div class="charts">
+      <figure class="panel"><figcaption>How often trials in each risk band really stopped</figcaption><div id="chart-bands" class="chart"></div></figure>
+      <figure class="panel"><figcaption>Does a 30% risk mean 30%? Predicted risk against what happened, in 10 groups of trials</figcaption><div id="chart-cal" class="chart"></div></figure>
+    </div>
+    <div class="panel leak">
+      <div class="leak-text">
+        <h3>The model that cheated</h3>
+        <p>The first model scored <b id="r-cheat"></b>. It was rejected. It used facts that only exist after a trial ends, such as the final number of patients. A real tool would never have them for a new trial.</p>
+        <p>Four more fields looked suspicious. They helped with withdrawn trials <b id="r-sus-w"></b> but with terminated trials only <b id="r-sus-t"></b>. That is the trace of records edited after a trial stopped, so they were left out too.</p>
+      </div>
+      <div id="chart-leak" class="chart"></div>
+    </div>
+    <div class="panel">
+      <h3>Case files: predictions next to what really happened</h3>
+      <div class="table-wrap"><table id="scorecard"><thead><tr><th>Trial</th><th>Stamped</th><th>What really happened</th><th>Verdict</th></tr></thead><tbody></tbody></table></div>
+    </div>
+    <div class="panel">
+      <h3>Does it work for every kind of trial?</h3>
+      <div class="table-wrap"><table id="fair"><thead><tr><th>Group</th><th>Trials</th><th>Stopped</th><th>AUROC</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="how" class="how">
+    <h2>How it was built</h2>
+    <ol class="pipeline" id="pipeline"></ol>
+    <p class="limits"><b>Limits.</b> Trials stop for reasons no protocol shows, such as a pandemic or a company merger. Registry records are written by sponsors and some fields are edited over time. TrialRisk is a research demo, not advice for real trial decisions.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Data: <a href="https://clinicaltrials.gov/" rel="noopener">ClinicalTrials.gov</a>, U.S. National Library of Medicine. Research demo, not advice for real trial decisions.</p>
+  <p>Built by Tirth Chheta. <a href="https://github.com/tirthchheta511" rel="noopener">GitHub</a> <a href="docs" rel="noopener">API docs</a></p>
+</footer>
+
+<dialog id="design-dialog">
+  <form method="dialog" id="design-form">
+    <h3>Design your own trial</h3>
+    <p>Describe it in a few words. You can change everything else afterwards.</p>
+    <label>Title<input name="title" required maxlength="200" value="Pilot study of a new pill for knee osteoarthritis pain"></label>
+    <label>Condition<input name="condition" required maxlength="120" value="Knee osteoarthritis"></label>
+    <label>Treatment<input name="treatment" required maxlength="120" value="Pill X"></label>
+    <label>Sponsor<input name="sponsor" maxlength="120" value="My Company"></label>
+    <div class="dialog-actions"><button value="cancel" class="linkish" formnovalidate>Cancel</button><button value="ok" id="design-go">Put it on the desk</button></div>
+  </form>
+</dialog>
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<script src="app.js?v=1"></script>
+</body>
+</html>

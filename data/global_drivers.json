@@ -1,0 +1,229 @@
+{
+ "drivers": [
+  {
+   "feature": "ai_text_score",
+   "signal": "AI reading of the protocol text",
+   "share_%": 13.9,
+   "direction": "higher = more risk"
+  },
+  {
+   "feature": "fda_drug",
+   "signal": "FDA-regulated drug",
+   "share_%": 11.2,
+   "direction": "higher = more risk"
+  },
+  {
+   "feature": "sponsor_prior_stop_rate",
+   "signal": "Sponsor's past stop rate",
+   "share_%": 9.8,
+   "direction": "higher = more risk"
+  },
+  {
+   "feature": "fda_device",
+   "signal": "FDA-regulated device",
+   "share_%": 7.3,
+   "direction": "higher = more risk"
+  },
+  {
+   "feature": "healthy_volunteers",
+   "signal": "Accepts healthy volunteers",
+   "share_%": 5.0,
+   "direction": "higher = less risk"
+  },
+  {
+   "feature": "sponsor_prior_trials",
+   "signal": "Sponsor's earlier trials",
+   "share_%": 4.0,
+   "direction": "higher = more risk"
+  },
+  {
+   "feature": "n_primary_outcomes",
+   "signal": "Number of primary outcomes",
+   "share_%": 3.8,
+   "direction": "higher = less risk"
+  },
+  {
+   "feature": "elig_length",
+   "signal": "Length of eligibility rules",
+   "share_%": 2.7,
+   "direction": "higher = more risk"
+  },
+  {
+   "feature": "n_secondary_outcomes",
+   "signal": "Number of secondary outcomes",
+   "share_%": 2.7,
+   "direction": "higher = less risk"
+  },
+  {
+   "feature": "type_drug",
+   "signal": "Treatment type: drug",
+   "share_%": 2.6,
+   "direction": "higher = more risk"
+  },
+  {
+   "feature": "n_collaborators",
+   "signal": "Number of collaborators",
+   "share_%": 2.5,
+   "direction": "higher = less risk"
+  },
+  {
+   "feature": "sponsor_prior_ended",
+   "signal": "Sponsor's earlier finished trials",
+   "share_%": 2.5,
+   "direction": "higher = more risk"
+  },
+  {
+   "feature": "type_behavioral",
+   "signal": "Treatment type: behavioral",
+   "share_%": 1.9,
+   "direction": "higher = less risk"
+  },
+  {
+   "feature": "primary_purpose",
+   "signal": "Main purpose",
+   "share_%": 1.8,
+   "direction": "depends on the value"
+  },
+  {
+   "feature": "phase",
+   "signal": "Phase",
+   "share_%": 1.7,
+   "direction": "depends on the value"
+  }
+ ],
+ "categories": {
+  "phase": [
+   {
+    "value": "Phase 1 + Phase 2",
+    "trials": 296,
+    "effect": 0.127
+   },
+   {
+    "value": "Phase 2 + Phase 3",
+    "trials": 139,
+    "effect": 0.101
+   },
+   {
+    "value": "Phase 2",
+    "trials": 1120,
+    "effect": 0.078
+   },
+   {
+    "value": "Early phase 1",
+    "trials": 161,
+    "effect": 0.037
+   },
+   {
+    "value": "Phase 4",
+    "trials": 665,
+    "effect": 0.026
+   },
+   {
+    "value": "No phase (device, behavioral, etc.)",
+    "trials": 5895,
+    "effect": -0.013
+   },
+   {
+    "value": "Phase 3",
+    "trials": 666,
+    "effect": -0.04
+   },
+   {
+    "value": "Phase 1",
+    "trials": 1046,
+    "effect": -0.082
+   }
+  ],
+  "sponsor_class": [
+   {
+    "value": "Fed",
+    "trials": 107,
+    "effect": 0.107
+   },
+   {
+    "value": "Other",
+    "trials": 7091,
+    "effect": 0.007
+   },
+   {
+    "value": "Industry",
+    "trials": 2509,
+    "effect": -0.013
+   },
+   {
+    "value": "Other gov",
+    "trials": 182,
+    "effect": -0.052
+   }
+  ],
+  "primary_purpose": [
+   {
+    "value": "Diagnostic",
+    "trials": 458,
+    "effect": 0.075
+   },
+   {
+    "value": "Supportive care",
+    "trials": 671,
+    "effect": 0.058
+   },
+   {
+    "value": "Other",
+    "trials": 913,
+    "effect": 0.033
+   },
+   {
+    "value": "Treatment",
+    "trials": 5734,
+    "effect": 0.018
+   },
+   {
+    "value": "Screening",
+    "trials": 101,
+    "effect": -0.052
+   },
+   {
+    "value": "Prevention",
+    "trials": 1125,
+    "effect": -0.073
+   },
+   {
+    "value": "Basic science",
+    "trials": 649,
+    "effect": -0.075
+   },
+   {
+    "value": "Health services research",
+    "trials": 296,
+    "effect": -0.117
+   }
+  ],
+  "masking": [
+   {
+    "value": "Triple",
+    "trials": 701,
+    "effect": 0.026
+   },
+   {
+    "value": "not given",
+    "trials": 5368,
+    "effect": 0.024
+   },
+   {
+    "value": "Quadruple",
+    "trials": 974,
+    "effect": 0.0
+   },
+   {
+    "value": "Double",
+    "trials": 1327,
+    "effect": -0.031
+   },
+   {
+    "value": "Single",
+    "trials": 1630,
+    "effect": -0.086
+   }
+  ]
+ }
+}

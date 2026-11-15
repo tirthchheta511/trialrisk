@@ -1,0 +1,123 @@
+{
+ "nct_id": "NCT07137871",
+ "title": "Clinical Trial of Avasopasem in Patients With Metastatic Hormone Receptor Positive Breast Cancer With Progression on a CDK 4/6 Inhibitor and Hormonal Therapy",
+ "status": "RECRUITING",
+ "phase": "Phase 1",
+ "sponsor": "The University of Texas Health Science Center at San Antonio",
+ "conditions": "Breast Cancer Metastatic",
+ "start": "2025-10-02",
+ "risk": 0.3595,
+ "band": "High",
+ "average_risk": 0.1472,
+ "times_average": 2.44,
+ "raises_risk": [
+  {
+   "feature": "ai_text_score",
+   "label": "AI reading of the protocol text",
+   "value": "reads like trials that stopped",
+   "effect": 0.4819
+  },
+  {
+   "feature": "sponsor_prior_stop_rate",
+   "label": "Sponsor's past stop rate",
+   "value": "14%",
+   "effect": 0.1293
+  },
+  {
+   "feature": "n_secondary_outcomes",
+   "label": "Number of secondary outcomes",
+   "value": "1",
+   "effect": 0.119
+  },
+  {
+   "feature": "sponsor_prior_trials",
+   "label": "Sponsor's earlier trials",
+   "value": "340",
+   "effect": 0.0903
+  }
+ ],
+ "lowers_risk": [
+  {
+   "feature": "phase",
+   "label": "Phase",
+   "value": "Phase 1",
+   "effect": -0.1737
+  },
+  {
+   "feature": "fda_device",
+   "label": "FDA-regulated device",
+   "value": "no",
+   "effect": -0.1434
+  },
+  {
+   "feature": "allocation",
+   "label": "Randomized or not",
+   "value": "Na",
+   "effect": -0.0414
+  },
+  {
+   "feature": "fda_drug",
+   "label": "FDA-regulated drug",
+   "value": "yes",
+   "effect": -0.0256
+  }
+ ],
+ "similar": [
+  {
+   "nct_id": "NCT03519178",
+   "title": "A Study of PF-06873600 in People With Cancer",
+   "status": "TERMINATED",
+   "why_stopped": "Per business decision, but not due to safety concerns or regulatory request.",
+   "start_year": 2018,
+   "similarity": 0.6389999985694885
+  },
+  {
+   "nct_id": "NCT00759642",
+   "title": "Lapatinib in Women With Metastatic Breast Cancer Who Have Failed Prior Antihormone Therapy",
+   "status": "TERMINATED",
+   "why_stopped": "IRB decision",
+   "start_year": 2009,
+   "similarity": 0.6240000128746033
+  },
+  {
+   "nct_id": "NCT03227328",
+   "title": "CDK4/6-inhibitor or Chemotherapy, in Combination with ENDOcrine Therapy, for Advanced Breast Cancer / KENDO",
+   "status": "COMPLETED",
+   "why_stopped": null,
+   "start_year": 2017,
+   "similarity": 0.6230000257492065
+  },
+  {
+   "nct_id": "NCT00661531",
+   "title": "Estrogen in Postmenopausal Women With ER Positive Metastatic Breast Cancer After Failure of Sequential Endocrine Therapy",
+   "status": "TERMINATED",
+   "why_stopped": "Poor accrual",
+   "start_year": 2008,
+   "similarity": 0.6110000014305115
+  },
+  {
+   "nct_id": "NCT02000375",
+   "title": "A Phase II Study Evaluating the Role of Androgen Receptors as Targets for Therapy of Pre-treated Post-menopausal Patients With ER/PgR-negative/AR-posi",
+   "status": "TERMINATED",
+   "why_stopped": "Due to slow recruitment and recent new published data",
+   "start_year": 2013,
+   "similarity": 0.609000027179718
+  },
+  {
+   "nct_id": "NCT03088527",
+   "title": "Phase 1, First-in-Human Study of RAD140 in Postmenopausal Women With Breast Cancer",
+   "status": "COMPLETED",
+   "why_stopped": null,
+   "start_year": 2017,
+   "similarity": 0.6000000238418579
+  }
+ ],
+ "similar_checked": 20,
+ "similar_stopped": 11,
+ "similar_reasons": {
+  "Low enrollment": 4,
+  "Safety or efficacy": 3,
+  "Funding or business": 3,
+  "Site, staff or regulatory": 1
+ }
+}

@@ -1,0 +1,783 @@
+{
+ "model": {
+  "version": "trialrisk-1.0",
+  "trained_on": "2008-2015 starts",
+  "calibrated_on": "2016-2017 starts",
+  "tested_on": "2018-2019 starts",
+  "bands": {
+   "medium": 0.1,
+   "high": 0.25
+  },
+  "base_rate": 0.14721263617821342
+ },
+ "metrics": {
+  "test_auroc": 0.742,
+  "test_auprc": 0.349,
+  "test_brier": 0.12424431125798352,
+  "test_auroc_without_covid": 0.7695876011698156,
+  "top10_lift": 2.3653862255386104,
+  "test_trials": 33788,
+  "test_stop_rate": 0.16313484077187168
+ },
+ "calibration": [
+  {
+   "predicted": 0.0278,
+   "actual": 0.0346
+  },
+  {
+   "predicted": 0.0336,
+   "actual": 0.0456
+  },
+  {
+   "predicted": 0.0443,
+   "actual": 0.0577
+  },
+  {
+   "predicted": 0.0533,
+   "actual": 0.0917
+  },
+  {
+   "predicted": 0.0811,
+   "actual": 0.1092
+  },
+  {
+   "predicted": 0.0987,
+   "actual": 0.1462
+  },
+  {
+   "predicted": 0.1393,
+   "actual": 0.1829
+  },
+  {
+   "predicted": 0.173,
+   "actual": 0.2409
+  },
+  {
+   "predicted": 0.2364,
+   "actual": 0.3058
+  },
+  {
+   "predicted": 0.3347,
+   "actual": 0.4168
+  }
+ ],
+ "baselines": [
+  {
+   "model": "Sponsor past stop rate alone",
+   "AUROC": 0.649,
+   "AUPRC": 0.254
+  },
+  {
+   "model": "Phase 3 fields (baseline)",
+   "AUROC": 0.663,
+   "AUPRC": 0.268
+  },
+  {
+   "model": "TrialRisk (final)",
+   "AUROC": 0.742,
+   "AUPRC": 0.349
+  }
+ ],
+ "risk_bands": [
+  {
+   "band": "Low (under 10%)",
+   "trials": 19838,
+   "stopped_pct": 7.7,
+   "share_of_trials_%": 58.7
+  },
+  {
+   "band": "Medium (10-25%)",
+   "trials": 8767,
+   "stopped_pct": 22.7,
+   "share_of_trials_%": 25.9
+  },
+  {
+   "band": "High (25% or more)",
+   "trials": 5183,
+   "stopped_pct": 38.6,
+   "share_of_trials_%": 15.3
+  }
+ ],
+ "reasons_caught": [
+  {
+   "reason": "Safety or efficacy",
+   "stopped_trials": 543,
+   "caught_in_top_20pct": 53.6
+  },
+  {
+   "reason": "Low enrollment",
+   "stopped_trials": 1384,
+   "caught_in_top_20pct": 53.1
+  },
+  {
+   "reason": "Funding or business",
+   "stopped_trials": 1066,
+   "caught_in_top_20pct": 52.0
+  },
+  {
+   "reason": "Site, staff or regulatory",
+   "stopped_trials": 578,
+   "caught_in_top_20pct": 45.7
+  },
+  {
+   "reason": "Other",
+   "stopped_trials": 1014,
+   "caught_in_top_20pct": 39.1
+  },
+  {
+   "reason": "Not given",
+   "stopped_trials": 4,
+   "caught_in_top_20pct": 25.0
+  },
+  {
+   "reason": "COVID-19",
+   "stopped_trials": 923,
+   "caught_in_top_20pct": 23.4
+  }
+ ],
+ "subgroups": [
+  {
+   "group": "phase",
+   "value": "No phase (NA)",
+   "trials": 20163,
+   "stopped_%": 11.8,
+   "AUROC": 0.717
+  },
+  {
+   "group": "phase",
+   "value": "PHASE2",
+   "trials": 3663,
+   "stopped_%": 29.0,
+   "AUROC": 0.663
+  },
+  {
+   "group": "phase",
+   "value": "PHASE1",
+   "trials": 3573,
+   "stopped_%": 17.0,
+   "AUROC": 0.763
+  },
+  {
+   "group": "phase",
+   "value": "PHASE3",
+   "trials": 2259,
+   "stopped_%": 20.6,
+   "AUROC": 0.678
+  },
+  {
+   "group": "phase",
+   "value": "PHASE4",
+   "trials": 2105,
+   "stopped_%": 20.6,
+   "AUROC": 0.716
+  },
+  {
+   "group": "phase",
+   "value": "PHASE1|PHASE2",
+   "trials": 1037,
+   "stopped_%": 32.1,
+   "AUROC": 0.683
+  },
+  {
+   "group": "phase",
+   "value": "EARLY_PHASE1",
+   "trials": 553,
+   "stopped_%": 22.8,
+   "AUROC": 0.705
+  },
+  {
+   "group": "phase",
+   "value": "PHASE2|PHASE3",
+   "trials": 403,
+   "stopped_%": 22.3,
+   "AUROC": 0.718
+  },
+  {
+   "group": "sponsor_class",
+   "value": "OTHER",
+   "trials": 24003,
+   "stopped_%": 15.5,
+   "AUROC": 0.749
+  },
+  {
+   "group": "sponsor_class",
+   "value": "INDUSTRY",
+   "trials": 8375,
+   "stopped_%": 18.7,
+   "AUROC": 0.717
+  },
+  {
+   "group": "sponsor_class",
+   "value": "OTHER_GOV",
+   "trials": 672,
+   "stopped_%": 7.1,
+   "AUROC": 0.665
+  },
+  {
+   "group": "sponsor_class",
+   "value": "FED",
+   "trials": 327,
+   "stopped_%": 16.5,
+   "AUROC": 0.628
+  }
+ ],
+ "feature_choices": [
+  {
+   "option": "A. Design + sponsor record (no text)",
+   "kind": "option",
+   "features": 71,
+   "AUROC": 0.7381,
+   "AUPRC": 0.3177,
+   "AUROC terminated": 0.736,
+   "AUROC withdrawn": 0.7428
+  },
+  {
+   "option": "B. A + 32 text patterns",
+   "kind": "option",
+   "features": 103,
+   "AUROC": 0.7426,
+   "AUPRC": 0.3251,
+   "AUROC terminated": 0.7422,
+   "AUROC withdrawn": 0.7437
+  },
+  {
+   "option": "C. A + one AI text score",
+   "kind": "chosen",
+   "features": 72,
+   "AUROC": 0.7425,
+   "AUPRC": 0.3242,
+   "AUROC terminated": 0.7409,
+   "AUROC withdrawn": 0.7462
+  },
+  {
+   "option": "D. A + both",
+   "kind": "option",
+   "features": 104,
+   "AUROC": 0.7438,
+   "AUPRC": 0.3266,
+   "AUROC terminated": 0.7431,
+   "AUROC withdrawn": 0.7453
+  },
+  {
+   "option": "E. Chosen + site counts (suspicious)",
+   "kind": "suspicious",
+   "features": 75,
+   "AUROC": 0.7558,
+   "AUPRC": 0.3749,
+   "AUROC terminated": 0.7486,
+   "AUROC withdrawn": 0.7721
+  },
+  {
+   "option": "F. Chosen + months registered before start (suspicious)",
+   "kind": "suspicious",
+   "features": 73,
+   "AUROC": 0.7635,
+   "AUPRC": 0.3582,
+   "AUROC terminated": 0.7502,
+   "AUROC withdrawn": 0.794
+  },
+  {
+   "option": "G. Chosen + all suspicious fields",
+   "kind": "suspicious",
+   "features": 76,
+   "AUROC": 0.7831,
+   "AUPRC": 0.4235,
+   "AUROC terminated": 0.7563,
+   "AUROC withdrawn": 0.8443
+  },
+  {
+   "option": "H. Chosen without FDA fields (added to the registry in 2017)",
+   "kind": "check",
+   "features": 70,
+   "AUROC": 0.7389,
+   "AUPRC": 0.3214,
+   "AUROC terminated": 0.7398,
+   "AUROC withdrawn": 0.7368
+  }
+ ],
+ "suspicious": {
+  "suspicious_gain_terminated": 0.0154,
+  "suspicious_gain_withdrawn": 0.0981
+ },
+ "leak_audit": [
+  {
+   "field": "Number of patients enrolled",
+   "column": "enrollment",
+   "AUROC alone": 0.804,
+   "verdict": "LEAK",
+   "why": "Changed to the ACTUAL count after the trial ended",
+   "stopped_mean": 96.03,
+   "completed_mean": 619.86
+  },
+  {
+   "field": "Months registered before start",
+   "column": "months_registered_before_start",
+   "AUROC alone": 0.65,
+   "verdict": "SUSPICIOUS",
+   "why": "Start date can be pushed back before a withdrawal",
+   "stopped_mean": 1.79,
+   "completed_mean": -6.48
+  },
+  {
+   "field": "Length of eligibility rules",
+   "column": "eligibility_length",
+   "AUROC alone": 0.594,
+   "verdict": "SAFE",
+   "why": "Set by the protocol",
+   "stopped_mean": 1991.44,
+   "completed_mean": 1527.2
+  },
+  {
+   "field": "Start date is \"actual\"",
+   "column": "start_is_actual",
+   "AUROC alone": 0.556,
+   "verdict": "LEAK",
+   "why": "Withdrawn trials never started",
+   "stopped_mean": 0.89,
+   "completed_mean": 1.0
+  },
+  {
+   "field": "Number of study arms",
+   "column": "n_arms",
+   "AUROC alone": 0.554,
+   "verdict": "SAFE",
+   "why": "Set by the protocol",
+   "stopped_mean": 2.0,
+   "completed_mean": 2.2
+  },
+  {
+   "field": "Number of primary outcomes",
+   "column": "n_primary_outcomes",
+   "AUROC alone": 0.533,
+   "verdict": "SAFE",
+   "why": "Set by the protocol",
+   "stopped_mean": 1.68,
+   "completed_mean": 1.96
+  },
+  {
+   "field": "Trial length (start to completion)",
+   "column": "trial_length_months",
+   "AUROC alone": 0.529,
+   "verdict": "LEAK",
+   "why": "Only known after the end; stopped trials are short",
+   "stopped_mean": 32.26,
+   "completed_mean": 31.11
+  },
+  {
+   "field": "No study sites listed",
+   "column": "no_sites_listed",
+   "AUROC alone": 0.518,
+   "verdict": "SUSPICIOUS",
+   "why": "Sites may never be added if a trial is withdrawn",
+   "stopped_mean": 0.11,
+   "completed_mean": 0.07
+  },
+  {
+   "field": "Number of collaborators",
+   "column": "n_collaborators",
+   "AUROC alone": 0.511,
+   "verdict": "SAFE",
+   "why": "Set at planning",
+   "stopped_mean": 0.51,
+   "completed_mean": 0.59
+  },
+  {
+   "field": "Number of countries",
+   "column": "n_countries",
+   "AUROC alone": 0.511,
+   "verdict": "SUSPICIOUS",
+   "why": "Follows the site list",
+   "stopped_mean": 1.54,
+   "completed_mean": 1.51
+  },
+  {
+   "field": "Year of last record update",
+   "column": "last_update_year",
+   "AUROC alone": 0.509,
+   "verdict": "LEAK",
+   "why": "Depends on when the trial ended",
+   "stopped_mean": 2018.86,
+   "completed_mean": 2018.71
+  },
+  {
+   "field": "Results posted",
+   "column": "has_results",
+   "AUROC alone": 0.508,
+   "verdict": "LEAK",
+   "why": "Only possible after the end",
+   "stopped_mean": 0.31,
+   "completed_mean": 0.29
+  },
+  {
+   "field": "Number of study sites",
+   "column": "n_locations",
+   "AUROC alone": 0.504,
+   "verdict": "SUSPICIOUS",
+   "why": "Sites can be added or removed over time",
+   "stopped_mean": 7.69,
+   "completed_mean": 7.56
+  },
+  {
+   "field": "Title or summary mentions stopping",
+   "column": "text_mentions_stopping",
+   "AUROC alone": 0.504,
+   "verdict": "LEAK",
+   "why": "Text edited after the stop",
+   "stopped_mean": 0.03,
+   "completed_mean": 0.02
+  },
+  {
+   "field": "Enrollment marked \"actual\"",
+   "column": "enrollment_is_actual",
+   "AUROC alone": 0.502,
+   "verdict": "LEAK",
+   "why": "Changes when the trial ends",
+   "stopped_mean": 0.98,
+   "completed_mean": 0.97
+  },
+  {
+   "field": "Number of secondary outcomes",
+   "column": "n_secondary_outcomes",
+   "AUROC alone": 0.501,
+   "verdict": "SAFE",
+   "why": "Set by the protocol",
+   "stopped_mean": 4.14,
+   "completed_mean": 4.35
+  }
+ ],
+ "why_trials_stop": [
+  {
+   "reason": "Low enrollment",
+   "trials": 8036,
+   "share_%": 31.5,
+   "example": "Administrative closure based on sponsor recommendation, prior to subject enrollment"
+  },
+  {
+   "reason": "Other",
+   "trials": 4455,
+   "share_%": 17.4,
+   "example": "Negative clinical outcomes"
+  },
+  {
+   "reason": "Funding or business",
+   "trials": 3872,
+   "share_%": 15.2,
+   "example": "Termination of the study by the sponsor due to business decision."
+  },
+  {
+   "reason": "Not given",
+   "trials": 3011,
+   "share_%": 11.8,
+   "example": null
+  },
+  {
+   "reason": "Site, staff or regulatory",
+   "trials": 2490,
+   "share_%": 9.7,
+   "example": "PI did not attempt to open the study."
+  },
+  {
+   "reason": "Safety or efficacy",
+   "trials": 2471,
+   "share_%": 9.7,
+   "example": "New data; the study was terminated based on new efficacy data"
+  },
+  {
+   "reason": "COVID-19",
+   "trials": 1214,
+   "share_%": 4.8,
+   "example": "Lack of recruitment, ongoing and new feasibility issues, and the impact of the coronavirus"
+  }
+ ],
+ "sponsor_track_record": [
+  {
+   "sponsor's past stop rate": "0) new sponsor (no finished trials yet)",
+   "trials": 23567,
+   "stopped_pct": 14.0
+  },
+  {
+   "sponsor's past stop rate": "1) under 10%",
+   "trials": 50964,
+   "stopped_pct": 9.3
+  },
+  {
+   "sponsor's past stop rate": "2) 10-20%",
+   "trials": 72591,
+   "stopped_pct": 15.8
+  },
+  {
+   "sponsor's past stop rate": "3) 20-30%",
+   "trials": 17653,
+   "stopped_pct": 25.0
+  },
+  {
+   "sponsor's past stop rate": "4) 30% or more",
+   "trials": 4968,
+   "stopped_pct": 31.5
+  }
+ ],
+ "time_split": [
+  {
+   "split": "train",
+   "years": "2008-2015",
+   "trials": 103449,
+   "stopped_pct": 14.7
+  },
+  {
+   "split": "valid",
+   "years": "2016-2017",
+   "trials": 32506,
+   "stopped_pct": 14.8
+  },
+  {
+   "split": "test",
+   "years": "2018-2019",
+   "trials": 33788,
+   "stopped_pct": 16.3
+  }
+ ],
+ "drivers": {
+  "drivers": [
+   {
+    "feature": "ai_text_score",
+    "signal": "AI reading of the protocol text",
+    "share_%": 13.9,
+    "direction": "higher = more risk"
+   },
+   {
+    "feature": "fda_drug",
+    "signal": "FDA-regulated drug",
+    "share_%": 11.2,
+    "direction": "higher = more risk"
+   },
+   {
+    "feature": "sponsor_prior_stop_rate",
+    "signal": "Sponsor's past stop rate",
+    "share_%": 9.8,
+    "direction": "higher = more risk"
+   },
+   {
+    "feature": "fda_device",
+    "signal": "FDA-regulated device",
+    "share_%": 7.3,
+    "direction": "higher = more risk"
+   },
+   {
+    "feature": "healthy_volunteers",
+    "signal": "Accepts healthy volunteers",
+    "share_%": 5.0,
+    "direction": "higher = less risk"
+   },
+   {
+    "feature": "sponsor_prior_trials",
+    "signal": "Sponsor's earlier trials",
+    "share_%": 4.0,
+    "direction": "higher = more risk"
+   },
+   {
+    "feature": "n_primary_outcomes",
+    "signal": "Number of primary outcomes",
+    "share_%": 3.8,
+    "direction": "higher = less risk"
+   },
+   {
+    "feature": "elig_length",
+    "signal": "Length of eligibility rules",
+    "share_%": 2.7,
+    "direction": "higher = more risk"
+   },
+   {
+    "feature": "n_secondary_outcomes",
+    "signal": "Number of secondary outcomes",
+    "share_%": 2.7,
+    "direction": "higher = less risk"
+   },
+   {
+    "feature": "type_drug",
+    "signal": "Treatment type: drug",
+    "share_%": 2.6,
+    "direction": "higher = more risk"
+   },
+   {
+    "feature": "n_collaborators",
+    "signal": "Number of collaborators",
+    "share_%": 2.5,
+    "direction": "higher = less risk"
+   },
+   {
+    "feature": "sponsor_prior_ended",
+    "signal": "Sponsor's earlier finished trials",
+    "share_%": 2.5,
+    "direction": "higher = more risk"
+   },
+   {
+    "feature": "type_behavioral",
+    "signal": "Treatment type: behavioral",
+    "share_%": 1.9,
+    "direction": "higher = less risk"
+   },
+   {
+    "feature": "primary_purpose",
+    "signal": "Main purpose",
+    "share_%": 1.8,
+    "direction": "depends on the value"
+   },
+   {
+    "feature": "phase",
+    "signal": "Phase",
+    "share_%": 1.7,
+    "direction": "depends on the value"
+   }
+  ],
+  "categories": {
+   "phase": [
+    {
+     "value": "Phase 1 + Phase 2",
+     "trials": 296,
+     "effect": 0.127
+    },
+    {
+     "value": "Phase 2 + Phase 3",
+     "trials": 139,
+     "effect": 0.101
+    },
+    {
+     "value": "Phase 2",
+     "trials": 1120,
+     "effect": 0.078
+    },
+    {
+     "value": "Early phase 1",
+     "trials": 161,
+     "effect": 0.037
+    },
+    {
+     "value": "Phase 4",
+     "trials": 665,
+     "effect": 0.026
+    },
+    {
+     "value": "No phase (device, behavioral, etc.)",
+     "trials": 5895,
+     "effect": -0.013
+    },
+    {
+     "value": "Phase 3",
+     "trials": 666,
+     "effect": -0.04
+    },
+    {
+     "value": "Phase 1",
+     "trials": 1046,
+     "effect": -0.082
+    }
+   ],
+   "sponsor_class": [
+    {
+     "value": "Fed",
+     "trials": 107,
+     "effect": 0.107
+    },
+    {
+     "value": "Other",
+     "trials": 7091,
+     "effect": 0.007
+    },
+    {
+     "value": "Industry",
+     "trials": 2509,
+     "effect": -0.013
+    },
+    {
+     "value": "Other gov",
+     "trials": 182,
+     "effect": -0.052
+    }
+   ],
+   "primary_purpose": [
+    {
+     "value": "Diagnostic",
+     "trials": 458,
+     "effect": 0.075
+    },
+    {
+     "value": "Supportive care",
+     "trials": 671,
+     "effect": 0.058
+    },
+    {
+     "value": "Other",
+     "trials": 913,
+     "effect": 0.033
+    },
+    {
+     "value": "Treatment",
+     "trials": 5734,
+     "effect": 0.018
+    },
+    {
+     "value": "Screening",
+     "trials": 101,
+     "effect": -0.052
+    },
+    {
+     "value": "Prevention",
+     "trials": 1125,
+     "effect": -0.073
+    },
+    {
+     "value": "Basic science",
+     "trials": 649,
+     "effect": -0.075
+    },
+    {
+     "value": "Health services research",
+     "trials": 296,
+     "effect": -0.117
+    }
+   ],
+   "masking": [
+    {
+     "value": "Triple",
+     "trials": 701,
+     "effect": 0.026
+    },
+    {
+     "value": "not given",
+     "trials": 5368,
+     "effect": 0.024
+    },
+    {
+     "value": "Quadruple",
+     "trials": 974,
+     "effect": 0.0
+    },
+    {
+     "value": "Double",
+     "trials": 1327,
+     "effect": -0.031
+    },
+    {
+     "value": "Single",
+     "trials": 1630,
+     "effect": -0.086
+    }
+   ]
+  }
+ },
+ "similar_index": {
+  "dims": 192,
+  "overlap_top10": 0.777,
+  "neighbour_share_auroc": 0.68
+ },
+ "data": {
+  "trials_downloaded": 386718,
+  "study_group": 169743,
+  "stop_rate": 0.1505
+ },
+ "phase3": {
+  "cheating_auroc": 0.869,
+  "honest_auroc": 0.676,
+  "note": "Phase 3, random 80/20 split"
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "model_mb": 66.5,
+ "int8_model_mb": 33.4,
+ "fp32_first_review_s": 2.4,
+ "fp32_peak_mb": 434,
+ "variant": "fp32",
+ "int8_note": "    sess = C.InferenceSession(session_options, self._model_path, True, self._read_config_from_model) | onnxruntime.capi.onnxruntime_pybind11_state.InvalidGraph: [ONNXRuntimeError] : 10 : INVALID_GRAPH : Load model from /content/int8_build/model_optimized.onnx failed:This is an invalid model. Type Error: Type 'tensor(float16)' of input parameter (embeddings.position_embeddings.weight_scale) of operator (DequantizeLinear) in node (/embeddings/position_embeddings/Gather_output_0_DequantizeLinear) i"
+}
